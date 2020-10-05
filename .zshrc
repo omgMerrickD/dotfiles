@@ -33,6 +33,7 @@ alias sz="source ~/.zshrc"
 alias cat="bat"
 alias ls="exa -lah"
 alias fp="fontpreview"
+alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 eval "$(navi widget zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
