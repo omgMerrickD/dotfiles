@@ -32,7 +32,9 @@ alias ez="vim ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias cat="bat"
 alias ls="exa -lah"
+alias lw="exa -a"
 alias fp="fontpreview"
+alias ei3="vim ~/.i3/config"
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 eval "$(navi widget zsh)"
 
