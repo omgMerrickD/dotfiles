@@ -5,9 +5,26 @@
 set $center move absolute position center
 set $thick 16
 set $cordless exec --no-startup-id xfce4-terminal --initial-title=cordless -e cordless
+set $i3config exec --no-startup-id xfce4-terminal --initial-title=i3config -e vim ~/.i3/config
+set $mode_config_edit Config editors: [i] i3, [z] zsh, [x] .Xresources, [v] vim
+
+
 
 # Custom binds
 bindsym $mod+Ctrl+d $cordless; workspace $ws3
+bindsym $mod+Shift+m mode "$mode_config_edit"
+bindsym $mod+Shift+p $i3config
+
+# Custome modes
+mode "$mode_config_edit" {
+    bindsym i exec --no-startup-id xfce4-terminal --initial-title=i3config -e "vim /home/gh0st/.i3/config", mode "default", layout toggle split
+    bindsym z exec --no-startup-id xfce4-terminal --initial-title=zshconfig -e "vim /home/gh0st/.zshrc", mode "default"
+    bindsym x exec --no-startup-id xfce4-terminal --initial-title=xresconfig -e "vim /home/gh0st/.Xresources", mode "default"
+    bindsym v exec --no-startup-id xfce4-terminal --initial-title=vimconfig -e "vim /home/gh0st/.config/nvim/init.vim", mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
@@ -202,6 +219,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
 assign [title="cordless"] $ws3
+assign [title="i3config"] $ws8
+assign [title="zshconfig"] $ws8
+assign [title="vimconfig"] $ws8
+assign [title="xresconfig"] $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -232,6 +253,10 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="xfce4-terminal"] border pixel 4 focus
+for_window [title="i3config"] border pixel 4 focus
+for_window [title="zshconfig"] border pixel 4 focus
+for_window [title="vimconfig"] border pixel 4 focus
+for_window [title="xresconfig"] border pixel 4 focus
 #for_window [class="firefox"] floating enable, resize set 1440 1200, move [absolute] position center
 
 
