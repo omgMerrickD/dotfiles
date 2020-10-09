@@ -6,12 +6,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=/home/gh0st/.rvm/gems/ruby-2.7.0/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/bin:/usr/local/bin:/home/gh0st/.cargo/bin:$PATH
+export PATH=/home/vexed/.rvm/gems/ruby-2.7.0/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/bin:/usr/local/bin:/home/vexed/.cargo/bin:$PATH
 
 zmodload zsh/zpty
 
 #Path to your oh-my-zsh installation.
-export ZSH="/home/gh0st/.oh-my-zsh"
+export ZSH="/home/vexed/.oh-my-zsh"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#00afff"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -22,7 +22,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
