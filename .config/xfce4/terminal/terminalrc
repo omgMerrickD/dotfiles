@@ -2,9 +2,9 @@
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
-MiscBordersDefault=FALSE
+MiscBordersDefault=TRUE
 MiscCursorBlinks=TRUE
-MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
+MiscCursorShape=TERMINAL_CURSOR_SHAPE_IBEAM
 MiscDefaultGeometry=80x24
 MiscInheritGeometry=FALSE
 MiscMenubarDefault=FALSE
@@ -28,4 +28,6 @@ MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=TRUE
 FontName=MesloLGS NF Bold 12
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
+ColorPalette=#44475a;#ff5555;#50fa7b;#ffb86c;#8be9fd;#bd93f9;#ff79c6;#94A3A5;#000000;#ff5555;#50fa7b;#ffb86c;#8be9fd;#bd93f9;#ff79c6;#ffffff
+ColorUseTheme=TRUE
 

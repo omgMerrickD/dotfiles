@@ -28,6 +28,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim='nvim'
 alias ez="vim ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias cat="bat"
