@@ -7,13 +7,15 @@ set $thick 16
 set $cordless exec --no-startup-id xfce4-terminal --initial-title=cordless -e cordless
 set $i3config exec --no-startup-id xfce4-terminal --initial-title=i3config -e vim ~/.i3/config
 set $mode_config_edit Config editors: [i] i3, [z] zsh, [x] .Xresources, [v] vim
-
-
+set $scratch_term exec --no-startup-id xfce4-terminal --initial-title=scratch_term
+set $scratch_browser exec --no-startup-id firefox --initial-title=scratch_browser
 
 # Custom binds
 bindsym $mod+Ctrl+d $cordless; workspace $ws3
 bindsym $mod+Shift+m mode "$mode_config_edit"
 bindsym $mod+Shift+p $i3config
+bindsym $mod+p $scratch_term; scratchpad show
+bindsym $mod+b $scratch_browser; scratchpad show
 
 # Custome modes
 mode "$mode_config_edit" {
@@ -124,9 +126,9 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
-workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+# workspace_auto_back_and_forth yes
+# bindsym $mod+b workspace back_and_forth
+# bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
@@ -258,8 +260,8 @@ for_window [title="i3config"] border pixel 4 focus
 for_window [title="zshconfig"] border pixel 4 focus
 for_window [title="vimconfig"] border pixel 4 focus
 for_window [title="xresconfig"] border pixel 4 focus
-for_window [class="firefox"] floating enable, resize set 1440 1200, move [absolute] position center
-
+for_window [class="firefox"] floating enable, move to scratchpad, resize set 1300 1340, move absolute position center
+for_window [title="scratch_term"] floating enable, move to scratchpad, resize set 1300 1340, move absolute position center
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
