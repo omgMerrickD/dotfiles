@@ -8,14 +8,14 @@ set $cordless exec --no-startup-id xfce4-terminal --initial-title=cordless -e co
 set $i3config exec --no-startup-id xfce4-terminal --initial-title=i3config -e vim ~/.i3/config
 set $mode_config_edit Config editors: [i] i3, [z] zsh, [x] .Xresources, [v] vim
 set $scratch_term exec --no-startup-id xfce4-terminal --initial-title=scratch_term
-set $scratch_browser exec --no-startup-id firefox --initial-title=scratch_browser
+# set $scratch_browser exec --no-startup-id firefox --title=scratch_browser
 
 # Custom binds
 bindsym $mod+Ctrl+d $cordless; workspace $ws3
 bindsym $mod+Shift+m mode "$mode_config_edit"
 bindsym $mod+Shift+p $i3config
 bindsym $mod+p $scratch_term; scratchpad show
-bindsym $mod+b $scratch_browser; scratchpad show
+bindsym $mod+b exec firefox
 
 # Custome modes
 mode "$mode_config_edit" {
@@ -84,12 +84,12 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec tilix -e 'bmenu'
+bindsym $mod+Ctrl+b exec xfce4-terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox; workspace $ws2
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+F5 exec tilix -e 'mocp'
+bindsym $mod+F5 exec xfce4-terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -260,7 +260,7 @@ for_window [title="i3config"] border pixel 4 focus
 for_window [title="zshconfig"] border pixel 4 focus
 for_window [title="vimconfig"] border pixel 4 focus
 for_window [title="xresconfig"] border pixel 4 focus
-for_window [class="firefox"] floating enable, move to scratchpad, resize set 1300 1340, move absolute position center
+# for_window [class="firefox"] floating enable, move to scratchpad, resize set 1300 1340, move absolute position center
 for_window [title="scratch_term"] floating enable, move to scratchpad, resize set 1300 1340, move absolute position center
 
 # switch to workspace with urgent window automatically
@@ -337,7 +337,7 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
+#exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
