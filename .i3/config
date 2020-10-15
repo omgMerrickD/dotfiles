@@ -179,7 +179,7 @@ bindsym $mod+Ctrl+Left workspace prev
 set $ws1 Main
 set $ws2 WWW
 set $ws3 Chat 
-set $ws4 Misc
+set $ws4 emacs
 set $ws5 5
 set $ws6 6
 set $ws7 7
@@ -320,7 +320,7 @@ mode "resize" {
 # Lock screen
 bindsym $mod+9 exec --no-startup-id blurlock
 
-# Autostart applications
+# autostart applications
 exec --no-startup-id /usr/bin/picom -b
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b

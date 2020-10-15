@@ -5,7 +5,7 @@ fi
 export PATH=/home/vexed/.rvm/gems/ruby-2.7.0/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/bin:/usr/local/bin:/home/vexed/.cargo/bin:$PATH
 
 export RST_SRC_PATH=/usr/local/src/rust/src
-
+export BROWSER=/usr/bin/firefox
 zmodload zsh/zpty
 
 export ZSH="/home/vexed/.oh-my-zsh"
