@@ -1,50 +1,22 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# Custom vars
-set $center move absolute position center
-set $thick 16
-set $cordless exec --no-startup-id xfce4-terminal --initial-title=cordless -e cordless
-set $i3config exec --no-startup-id xfce4-terminal --initial-title=i3config -e vim ~/.i3/config
-set $mode_config_edit Config editors: [i] i3, [z] zsh, [x] .Xresources, [v] vim
-set $scratch_term exec --no-startup-id xfce4-terminal --initial-title=scratch_term
-# set $scratch_browser exec --no-startup-id firefox --title=scratch_browser
-
-# Custom binds
-bindsym $mod+Ctrl+d $cordless; workspace $ws3
-bindsym $mod+Shift+m mode "$mode_config_edit"
-bindsym $mod+Shift+p $i3config
-bindsym $mod+p $scratch_term; scratchpad show
-bindsym $mod+b exec firefox
-
-# Custome modes
-mode "$mode_config_edit" {
-    bindsym i exec --no-startup-id xfce4-terminal --initial-title=i3config -e "vim /home/vexed/.i3/config", mode "default", layout toggle split
-    bindsym z exec --no-startup-id xfce4-terminal --initial-title=zshconfig -e "vim /home/vexed/.zshrc", mode "default"
-    bindsym x exec --no-startup-id xfce4-terminal --initial-title=xresconfig -e "vim /home/vexed/.Xresources", mode "default"
-    bindsym v exec --no-startup-id xfce4-terminal --initial-title=vimconfig -e "vim /home/vexed/.config/nvim/init.vim", mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
-set $mod Mod1
+set $mod Mod4
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 4
-default_floating_border pixel 4
+default_border pixel 1
+default_floating_border normal
 
 # Hide borders
 hide_edge_borders none
 
 # change borders
 bindsym $mod+u border none
-bindsym $mod+y border pixel 4
+bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -55,14 +27,13 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal, border pixel 4
+bindsym $mod+Return exec terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id dmenu_recency
-#bindsym $mod+d exec --no-startup-id "rofi -show combi -combi-modi 'drn,ssh'"
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -71,11 +42,11 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-##exec --no-startup-id volumeicon
-##bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id pa-applet
-bindsym $mod+Ctrl+m exec pavucontrol
+exec --no-startup-id volumeicon
+bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+#exec --no-startup-id pulseaudio
+#exec --no-startup-id pa-applet
+#bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -84,12 +55,12 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec xfce4-terminal -e 'bmenu'
-bindsym $mod+F2 exec firefox; workspace $ws2
+bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+F2 exec palemoon
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+F5 exec xfce4-terminal -e 'mocp'
+bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -126,9 +97,9 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
-# workspace_auto_back_and_forth yes
-# bindsym $mod+b workspace back_and_forth
-# bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+workspace_auto_back_and_forth yes
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
@@ -144,16 +115,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle; $center
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# PAPER MODE
-bindsym $mod+Ctrl+space floating toggle; resize set 700px 975px; $center
-
-# Center floating
-bindsym $mod+c $center
 
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
@@ -176,14 +141,14 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 Main
-set $ws2 WWW
-set $ws3 Chat 
-set $ws4 emacs
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
 set $ws5 5
 set $ws6 6
 set $ws7 7
-set $ws8 Config
+set $ws8 8
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -220,20 +185,14 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
-assign [class="Firefox"] $ws2
-assign [title="cordless"] $ws3
-assign [title="i3config"] $ws8
-assign [title="zshconfig"] $ws8
-assign [title="vimconfig"] $ws8
-assign [title="xresconfig"] $ws8
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 4
+for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="fpakman"] floating enable
-for_window [class="Galculator"] floating enable border pixel 4
+for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-settings"] floating enable
@@ -255,21 +214,12 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="xfce4-terminal"] border pixel 4 focus
-for_window [title="i3config"] border pixel 4 focus
-for_window [title="zshconfig"] border pixel 4 focus
-for_window [title="vimconfig"] border pixel 4 focus
-for_window [title="xresconfig"] border pixel 4 focus
-# for_window [class="firefox"] floating enable, move to scratchpad, resize set 1300 1340, move absolute position center
-for_window [title="scratch_term"] floating enable, move to scratchpad, resize set 1300 1340, move absolute position center
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-
-bindsym $mod+ctrl+Q exec flameshot gui
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -300,7 +250,8 @@ mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.        # Pressing down will grow the window’s height.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 5 px or 5 ppt
         bindsym k resize grow height 5 px or 5 ppt
         bindsym l resize shrink height 5 px or 5 ppt
@@ -320,24 +271,21 @@ mode "resize" {
 # Lock screen
 bindsym $mod+9 exec --no-startup-id blurlock
 
-# autostart applications
-exec --no-startup-id /usr/bin/picom -b
+# Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")"
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-exec --no-startup-id blueman-applet
+# exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-#exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -383,7 +331,7 @@ bar {
 	bindsym button4 nop
 	bindsym button5 nop
 #   font xft:URWGothic-Book 11
-	strip_workspace_numbers no
+	strip_workspace_numbers yes
 
     colors {
         background #222D31
@@ -402,17 +350,15 @@ bar {
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
-#556064
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #09515D #556064 #80FFF9 #00CCFF  #096572
+  client.focused          #556064 #556064 #80FFF9 #FDF6E3
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2  #5D0918
+  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000 
 
-#  client.background       #2B2C2B
-   client.background       #0B0C10
+  client.background       #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###
@@ -428,11 +374,11 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders no_gaps
+smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
