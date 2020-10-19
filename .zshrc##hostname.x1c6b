@@ -7,6 +7,10 @@ fi
 
 source ~/.zplug/init.zsh
 
+function dot_commit() {
+    yadm commit -m "$1"
+}
+
 # If you come from bash you might have to change your $PATH.
 export PATH=/home/gh0st/.rvm/gems/ruby-2.7.0/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/bin:/usr/local/bin:/home/gh0st/.cargo/bin:$PATH
 
@@ -40,6 +44,9 @@ alias fp="fontpreview"
 alias ei3="vim ~/.i3/config"
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias emc="emacsclient -nc -s instance1"
+alias dfa="yadm add -u :/"
+alias dfs="yadm status"
+alias dfc=dot_commit $*
 eval "$(navi widget zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
