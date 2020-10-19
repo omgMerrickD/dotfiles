@@ -48,8 +48,8 @@ alias dfs="yadm status"
 alias dfa="yadm add -u :/"
 alias dfc=dot_commit $*
 alias dfp="yadm push"
-alias dfac="yadm add -u :/ && dot_commit $*"
-alias dfacp="yadm add -u :/ && dot_commit $* && dfp && dfs"
+alias dfac="yadm add -u :/ && dot_commit $*" # TODO: Make this a shellscript
+alias dfacp="yadm add -u :/ && dot_commit $* && dfp && dfs" # TODO: Shellscript
 eval "$(navi widget zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
