@@ -47,6 +47,7 @@ alias emc="emacsclient -nc -s instance1"
 alias dfa="yadm add -u :/"
 alias dfs="yadm status"
 alias dfc=dot_commit $*
+alias dfp="yadm push"
 eval "$(navi widget zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
