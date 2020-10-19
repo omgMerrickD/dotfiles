@@ -246,9 +246,3 @@ keycode 252 =
 keycode 253 =
 keycode 254 = XF86WWAN NoSymbol XF86WWAN
 keycode 255 = XF86RFKill NoSymbol XF86RFKill
-clear mod1
-clear mod4
-keycode 64 = Super_L
-keycode 133 = Alt_L
-add mod1 = Super_L
-add mod4 = Alt_L
