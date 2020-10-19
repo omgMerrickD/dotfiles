@@ -44,11 +44,12 @@ alias fp="fontpreview"
 alias ei3="vim ~/.i3/config"
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias emc="emacsclient -nc -s instance1"
-alias dfa="yadm add -u :/"
-alias dfac="yadm add -u :/ && dot_commit $*"
 alias dfs="yadm status"
+alias dfa="yadm add -u :/"
 alias dfc=dot_commit $*
 alias dfp="yadm push"
+alias dfac="yadm add -u :/ && dot_commit $*"
+alias dfacp="yadm add -u :/ && dot_commit $* && dfp && dfs"
 eval "$(navi widget zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
