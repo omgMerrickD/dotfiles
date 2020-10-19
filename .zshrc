@@ -45,6 +45,7 @@ alias ei3="vim ~/.i3/config"
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias emc="emacsclient -nc -s instance1"
 alias dfa="yadm add -u :/"
+alias dfac="yadm add -u :/ && dot_commit $*"
 alias dfs="yadm status"
 alias dfc=dot_commit $*
 alias dfp="yadm push"
