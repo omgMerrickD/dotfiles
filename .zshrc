@@ -35,15 +35,16 @@ source $ZSH/oh-my-zsh.sh
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ez="vim ~/.zshrc"
+alias ez="emc ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias cat="bat"
 alias ls="exa -lah"
 alias lw="exa -a"
 alias fp="fontpreview"
-alias ei3="vim ~/.i3/config"
+alias ei3="emc ~/.i3/config"
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
-alias emc="emacsclient -c -t -s instance1"
+alias emc="emacsclient -c -n --alternate-editor=\"\""
+#alias emc="emacsclient -c -t -s instance1"
 alias dfs="yadm status"
 alias dfa="yadm add -u :/"
 alias dfc=dot_commit $*
