@@ -43,6 +43,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias sudo='sudo '
 alias ez="emc ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias cat="bat"
@@ -51,7 +52,8 @@ alias lw="exa -a"
 alias fp="fontpreview"
 alias ei3="emc ~/.i3/config"
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
-alias emc="emacsclient -c -n --alternate-editor=\"\""
+alias emc="emacsclient -tty --alternate-editor=\"\""
+alias emct="SUDO_EDITOR=\"emacsclient -c -n --alternate-editor=\" sudo -e"
 #alias emc="emacsclient -c -t -s instance1"
 alias dfs="yadm status"
 alias dfa="yadm add -u :/"

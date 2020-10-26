@@ -38,7 +38,9 @@ floating_modifier $mod
 bindsym $mod+Return exec tilix
 
 # start emacsclient
-bindsym $mod+Shift+m exec emacsclient -c -n
+bindsym $mod+Shift+m exec emacsclient -tty 
+
+bindsym $mod+Shift+p exec /home/gh0st/launch_top.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -68,8 +70,8 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # Start Applications
 bindsym $mod+Ctrl+b exec tilix -e 'bmenu'
 bindsym $mod+b exec chromium
-bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
+#bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
@@ -226,6 +228,7 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="emacs"] fullscreen enable
+for_window [title="htop"] floating enable border pixel 2, resize set 1440 900, move scratchpad, move window to 400 500, focus
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
@@ -347,13 +350,13 @@ bar {
 	bindsym button5 nop
 #   font xft:URWGothic-Book 11
 	strip_workspace_numbers yes
-
+#222D31
     colors {
         background #222D31
         statusline #F9FAF9
         separator  #454947
 
-#                      border  backgr. text
+#                           border  backgr. text
         focused_workspace  #F9FAF9 #16a085 #292F34
         active_workspace   #595B5B #353836 #FDF6E3
         inactive_workspace #595B5B #222D31 #EEE8D5
