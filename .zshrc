@@ -74,3 +74,9 @@ eval "$(navi widget zsh)"
 export PATH="/home/gh0st/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+#(cat  ~/.cache/wal/sequences &)
