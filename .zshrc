@@ -12,15 +12,29 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source ~/.zplug/init.zsh
+
+/bin/cat  ~/.cache/wal/sequences
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+
+# use the vi navigation keys in menu completion
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+setopt COMPLETE_ALIASES
+
+#source ~/.zplug/init.zsh
 
 function dot_commit() {
     yadm commit -m "$1"
 }
 
-export PATH=/home/gh0st/.rvm/gems/ruby-2.7.0/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/bin:/usr/local/bin:/home/gh0st/.cargo/bin:$PATH
-
-zmodload zsh/zpty
+export PATH=$HOME/.rbenv:$HOME/.rvm/bin:$HOME/.pyenv/bin:$HOME/gems/bin:$HOME/.rvm/gems/ruby-2.7.0/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH
+export GEM_HOME="$HOME/gems"
+#zmodload zsh/zpty
 
 #Path to your oh-my-zsh installation.
 export ZSH="/home/gh0st/.oh-my-zsh"
@@ -29,21 +43,22 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#00afff"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git command-not-found colored-man-pages emacs sudo zsh-autosuggestions zsh-syntax-highlighting)
-
+plugins=(autojump git command-not-found colored-man-pages emacs sudo zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias sudo='sudo '
-alias ez="emc ~/.zshrc"
+alias ez="eframe ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias cat="bat"
 alias ls="exa -lah"
 alias lw="exa -a"
 alias fp="fontpreview"
-alias vim="emc"
-alias ei3="emc ~/.i3/config"
+alias vim="eframe"
+alias E="SUDO_EDITOR=\"eframe\" sudo -e"
+alias ei3="eframe ~/.i3/config"
+alias -g G="| grep"
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias emc="emacsclient -tty --alternate-editor=\"\""
 alias emct="SUDO_EDITOR=\"emacsclient -c -n --alternate-editor=\" sudo -e"
@@ -54,21 +69,17 @@ alias dfc=dot_commit $*
 alias dfp="yadm push"
 alias dfac="yadm add -u :/ && dot_commit $*" # TODO: Make this a shellscript
 alias dfacp="yadm add -u :/ && dot_commit $* && dfp && dfs" # TODO: Shellscript
-alias inst="sudo pacman -S"
+alias paci="sudo pacman -S"
+alias pacs="sudo pacman -Ss"
 alias pacup="sudo pacman -Syyu"
-alias hugostart="cd $HOME/code/www/myblog && hugo serve"
+alias hugostart="cd $HOME/code/www/myblog && hugo serve &"
+alias piholes="ssh gh0st@192.168.254.100 \"pihole -t\""
 eval "$(navi widget zsh)"
+alias map="telnet mapscii.me"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="$PATH:$HOME/.rvm/bin"
 source /usr/share/nvm/init-nvm.sh
 eval "$(navi widget zsh)"
-export PATH="/home/gh0st/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
-#(cat  ~/.cache/wal/sequences &)
