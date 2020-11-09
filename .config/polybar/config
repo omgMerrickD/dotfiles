@@ -30,12 +30,14 @@ alert = #bd2c40
 [bar/kitkatbar]
 monitor = ${env:MONITOR:eDP1}
 width = 100%
-height = 30
+height = 40
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
 fixed-center = false
 
+tray-maxsize = 22
+tray-scale = 1.0
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -56,7 +58,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=20;;1
 
 modules-left = i3
-modules-center = mpd
+modules-center = mpd
 modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
@@ -145,18 +147,18 @@ label-urgent-padding = 2
 ; label-separator = |
 
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+;[module/mpd]
+;type = internal/mpd
+;format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+;icon-prev = 
+;icon-stop = 
+;icon-play = 
+;icon-pause = 
+;icon-next = 
 
-label-song-maxlen = 25
-label-song-ellipsis = true
+;label-song-maxlen = 25
+;label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -191,14 +193,14 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = "RAM "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = net1
+interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -308,9 +310,10 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = ADP1
+adapter = AC
 full-at = 98
-
+tray-scale = 1.0
+tray-size = 16
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
 

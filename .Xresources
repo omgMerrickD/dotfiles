@@ -5,11 +5,14 @@
 #  ██╗██╔╝ ██╗██║  ██║███████╗███████║╚██████╔╝╚██████╔╝██║  ██║╚██████╗███████╗███████║
 #  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚══════╝╚══════╝
 #                                                                                       
-Xft.dpi:       132
+Xft.dpi:       160
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
 Xft.autohint:  false
+!! Hintstyle is the amount of font reshaping done to line up to the grid.
+!! Values: hintnone, hintslight, hintmedium, hintfull 
+!! **default = hintslight**
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
