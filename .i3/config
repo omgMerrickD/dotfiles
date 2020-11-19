@@ -202,8 +202,8 @@ assign [class="Xfce4-terminal"] $ws1
 assign [instance="chromium"] $ws2
 assign [instance="discord"] $ws4
 assign [class="realvnc-vncviewer"] $ws7
-assign [instance="Spotify"] $ws8
-
+assign [class="Emacs"] $ws3
+# Spotify workstation assignment is declared below via for_window
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
