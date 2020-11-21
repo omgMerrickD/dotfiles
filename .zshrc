@@ -48,6 +48,7 @@ plugins=(autojump command-not-found colored-man-pages emacs git sudo zsh-autosug
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
+alias de="/usr/bin/emacs --with-profile doom"
 alias sudo='sudo '
 alias ez="emacs ~/.zshrc"
 alias sz="source ~/.zshrc"
