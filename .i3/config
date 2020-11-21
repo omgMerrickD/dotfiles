@@ -207,6 +207,7 @@ assign [instance="discord"] $ws4
 assign [class="realvnc-vncviewer"] $ws7
 assign [class="Emacs"] $ws3
 assign [class="whatsdesk"] $ws5
+assign [class="Anydesk"] $ws7
 # Spotify workstation assignment is declared below via for_window
 
 # Open specific applications in floating mode
@@ -241,6 +242,7 @@ for_window [class="Emacs"] fullscreen enable focus
 for_window [title="htop"] floating enable border pixel 2, resize set 1440 900, move scratchpad, move window to position 559 254, focus
 for_window [class="Spotify"] move to workspace $ws8
 for_window [title="scratchterm"] move scratchpad
+for_window [title="anydesk"] move to workspace $ws7
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
