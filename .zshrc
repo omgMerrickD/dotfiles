@@ -7,6 +7,7 @@
 #  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
 #
 
+
 /bin/cat  ~/.cache/wal/sequences
 # P10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -34,6 +35,7 @@ function dot_commit() {
 
 export PATH=$HOME/go/bin:$HOME/.rbenv/bin:$HOME/.rvm/bin:$HOME/.pyenv/bin:$HOME/gems/bin:$HOME/.rvm/gems/ruby-2.7.0/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH
 export GEM_HOME="$HOME/gems"
+export UPDATE_ZSH_DAYS=1
 #zmodload zsh/zpty
 
 #Path to your oh-my-zsh installation.
@@ -43,7 +45,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#00afff"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(autojump command-not-found colored-man-pages emacs git sudo zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(command-not-found colored-man-pages emacs git sudo zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,7 +76,7 @@ alias paci="sudo pacman -S"
 alias pacs="sudo pacman -Ss"
 alias pacu="sudo pacman -Syyu"
 alias pacr="sudo pacman -Rs"
-alias hugostart="cd $HOME/code/www/myblog && hugo serve &"
+alias hugostart="cd $HOME/github/www/myblog && hugo serve &"
 alias piholes="ssh pi@192.168.254.100 \"pihole -t\""
 alias cs="cht.sh --shell"
 alias udb="sudo updatedb"
@@ -95,4 +97,8 @@ alias map="telnet mapscii.me"
 source /usr/share/nvm/init-nvm.sh
 eval "$(navi widget zsh)"
 eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init -)"
 eval "$(rbenv init -)"
+#[[ -s /home/gh0st/.autojump/etc/profile.d/autojump.sh ]] && source /home/gh0st/.autojump/etc/profile.d/autojump.sh
+
+#autoload -U compinit && compinit -u
