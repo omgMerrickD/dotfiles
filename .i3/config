@@ -450,3 +450,10 @@ mode "$mode_gaps_outer" {
 }
 
 
+# Simple mode to bypass/disable all i3wm keybinds in the event of any conflicting binds
+mode "bypass"
+{
+        bindsym $mod+Escape mode "default"
+}
+
+bindsym $mod+Escape mode "bypass"
