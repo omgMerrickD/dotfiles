@@ -37,7 +37,7 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;;helm
+     helm
      ;unicode-fonts
      auto-completion
      better-defaults
@@ -46,7 +46,7 @@ This function should only modify configuration layer settings."
      git
      github
      html
-     ivy
+     ;;ivy
      javascript
      lsp
      markdown
@@ -82,11 +82,13 @@ This function should only modify configuration layer settings."
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(w3m
+                                      babel
                                       easy-hugo 
                                       gnuplot
                                       gnuplot-mode
                                       org-roam
                                       org-roam-server
+                                      org-babel-eval-in-repl
                                       )
    
 
@@ -521,6 +523,11 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . nil)
+     (R . t)))
   )
 
 (defun dotspacemacs/user-load ()
@@ -538,7 +545,6 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq easy-hugo-basedir "~/github/www/myblog")
   )
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (defun dotspacemacs/emacs-custom-settings ()
