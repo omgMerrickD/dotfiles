@@ -37,7 +37,7 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
+     ;;helm
      ;unicode-fonts
      auto-completion
      better-defaults
@@ -46,7 +46,7 @@ This function should only modify configuration layer settings."
      git
      github
      html
-     ;;ivy
+     ivy
      javascript
      lsp
      markdown
