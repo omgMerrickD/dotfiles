@@ -163,12 +163,12 @@ bindsym $mod+Ctrl+Left workspace prev
 #                 set $ws2 2:
 set $ws1 1:Terminal
 set $ws2 2:Browser
-set $ws3 3:Spacemacs
-set $ws4 4:Discord
-set $ws5 5:WhatsApp
+set $ws3 3:Editors
+set $ws4 4:Chat
+set $ws5 5:Misc
 set $ws6 6:Git
 set $ws7 7:Remote
-set $ws8 8:Spotify
+set $ws8 8:Media
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -207,9 +207,10 @@ assign [class="firefox"] $ws2
 assign [instance="discord"] $ws4
 assign [class="realvnc-vncviewer"] $ws7
 assign [class="Emacs"] $ws3
-assign [class="whatsdesk"] $ws5
+assign [class="whatsdesk"] $ws4
 assign [class="Anydesk"] $ws7
 assign [class="GitKraken"] $ws6
+assign [class="obsidian"] $ws5
 # Spotify workstation assignment is declared below via for_window
 
 # Open specific applications in floating mode
