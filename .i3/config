@@ -74,7 +74,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # Start Applications
 #bindsym $mod+Ctrl+b exec xfce4-terminal -e 'bmenu'
 #for_window [class="Chromium"] move scratchpad 
-bindsym $mod+b exec firefox 
+bindsym $mod+b exec vivaldi-stable 
 #bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
@@ -206,6 +206,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 assign [class="Xfce4-terminal"] $ws1
 assign [instance="chromium"] $ws2
 assign [class="firefox"] $ws2
+assign [class="Vivaldi-stable"] $ws2
 assign [instance="discord"] $ws4
 assign [class="realvnc-vncviewer"] $ws7
 assign [class="Emacs"] $ws3
@@ -371,9 +372,9 @@ bar {
         background $term_background
         statusline #FFFFFF
         separator  $term_background 
-
+#F9FAF9
                            #border #backgr # text
-        focused_workspace  #F9FAF9 #5DD671 #000000
+        focused_workspace  $term_forground #5DD671 #000000
         active_workspace   #595B5B #353836 #FDF6E3
         inactive_workspace #595B5B #222D31 #EEE8D5
         binding_mode       #16a085 #2C2C2C #F9FAF9

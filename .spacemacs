@@ -84,6 +84,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '(w3m
                                       babel
                                       easy-hugo 
+                                      emmet-mode
                                       gnuplot
                                       gnuplot-mode
                                       org-roam
