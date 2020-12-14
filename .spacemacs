@@ -49,11 +49,16 @@ This function should only modify configuration layer settings."
      ivy
      javascript
      lsp
+     (lua :variables
+          lua-backend 'lsp-emmy
+          lua-lsp-emmy-jar-path "~/.emacs.d/EmmyLua-LS-all.jar" ; default path
+          lua-lsp-emmy-java-path "java"                         ; default path
+          lua-lsp-emmy-enable-file-watchers t)                  ; enabled default
      markdown
      mu4e
      multiple-cursors
-     python
      rust
+     (python :variables python-backend 'anaconda)
      shell-scripts
      spell-checking
      syntax-checking
@@ -260,7 +265,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Hack Nerd Font"
                                :size 25
-                               :weight bold
+                               :weight normal
                                :width normal)
 
    ;; The leader key (default "SPC")
