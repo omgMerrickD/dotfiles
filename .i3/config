@@ -206,6 +206,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 assign [class="Xfce4-terminal"] $ws1
+assign [class="Tilix"] $ws1
 assign [instance="chromium"] $ws2
 assign [class="firefox"] $ws2
 assign [class="Vivaldi-stable"] $ws2
