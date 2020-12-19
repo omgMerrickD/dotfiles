@@ -67,7 +67,8 @@ alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias emct="SUDO_EDITOR=\"emacsclient -c -n --alternate-editor=\" sudo -e"
 #alias emc="emacsclient -c -t -s instance1"
 alias dfs="yadm status"
-alias dfa="yadm add -u :/"
+#alias dfa="yadm add -u :/"
+alias dfa="yadm add"
 alias dfc=dot_commit $*
 alias dfp="yadm push"
 alias dfac="yadm add -u :/ && dot_commit $*" # TODO: Make this a shellscript
@@ -91,6 +92,34 @@ alias fcu="sudo fc-cache -f -v"
 alias fcl="sudo fc-list -v G"
 eval "$(navi widget zsh)"
 alias map="telnet mapscii.me"
+
+# Setup grep to be a bit more nice
+  # check if 'x' grep argument available
+   grep-flag-available() {
+         echo | grep $1 "" >/dev/null 2>&1
+   }
+ 
+   local GREP_OPTIONS=""
+ 
+   # color grep results
+   if grep-flag-available --color=auto; then
+         GREP_OPTIONS+=" --color=auto"
+   fi
+ 
+   # ignore VCS folders (if the necessary grep flags are available)
+   local VCS_FOLDERS="{.bzr,CVS,.git,.hg,.svn}"
+ 
+   if grep-flag-available --exclude-dir=.cvs; then
+         GREP_OPTIONS+=" --exclude-dir=$VCS_FOLDERS"
+   elif grep-flag-available --exclude=.cvs; then
+         GREP_OPTIONS+=" --exclude=$VCS_FOLDERS"
+   fi
+ 
+   # export grep settings
+   alias grep="grep $GREP_OPTIONS"
+ 
+   # clean up
+   unfunction grep-flag-available
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
