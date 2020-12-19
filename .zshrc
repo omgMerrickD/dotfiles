@@ -55,7 +55,11 @@ alias sudo='sudo '
 alias ez="emacs ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias cat="bat"
-alias ls="exa -lah"
+
+# Copy with a progress bar
+alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
+
+alias ls="exa -lah" 
 alias lw="exa -a"
 alias fp="fontpreview"
 #alias vim="e"
