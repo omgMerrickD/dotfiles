@@ -37,7 +37,7 @@ font pango:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec tilix
+bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+Return [title="scratchterm"] scratchpad show 
 
 # start emacsclient
