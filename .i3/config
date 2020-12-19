@@ -209,6 +209,7 @@ assign [class="Xfce4-terminal"] $ws1
 assign [class="Tilix"] $ws1
 assign [instance="chromium"] $ws2
 assign [class="firefox"] $ws2
+assign [class="Vivaldi-snapshot"] $ws2
 assign [class="Vivaldi-stable"] $ws2
 assign [instance="discord"] $ws4
 assign [class="realvnc-vncviewer"] $ws7
