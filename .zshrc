@@ -38,6 +38,7 @@ export GEM_HOME="$HOME/gems"
 export UPDATE_ZSH_DAYS=1
 #zmodload zsh/zpty
 
+export ARCHFLAGS="-arch x86_64"
 #Path to your oh-my-zsh installation.
 export ZSH="/home/gh0st/.oh-my-zsh"
 
@@ -81,7 +82,7 @@ alias paci="sudo pacman -S"
 alias pacs="sudo pacman -Ss"
 alias pacu="sudo pacman -Syyu"
 alias pacr="sudo pacman -Rs"
-alias hugostart="cd $HOME/github/www/myblog && hugo serve &"
+alias hugostart="cd $HOME/github/hugo/myblog && hugo server --disableFastRender &"
 alias piholes="ssh pi@192.168.254.100 \"pihole -t\""
 alias cs="cht.sh --shell"
 alias udb="sudo updatedb"
@@ -124,6 +125,22 @@ alias map="telnet mapscii.me"
  
    # clean up
    unfunction grep-flag-available
+
+# ZSH History 
+   alias history='fc -fl 1'
+   HISTFILE=$ZSH_CACHE/history                 # Keep our home directory neat by keeping the histfile somewhere else
+   SAVEHIST=10000                              # Big history
+   HISTSIZE=10000                              # Big history
+   setopt EXTENDED_HISTORY                     # Include more information about when the command was executed, etc
+   setopt APPEND_HISTORY                       # Allow multiple terminal sessions to all append to one zsh command history
+   setopt HIST_FIND_NO_DUPS                    # When searching history don't display results already cycled through twice
+   setopt HIST_EXPIRE_DUPS_FIRST               # When duplicates are entered, get rid of the duplicates first when we hit $HISTSIZE 
+   setopt HIST_IGNORE_SPACE                    # Don't enter commands into history if they start with a space
+   setopt HIST_VERIFY                          # makes history substitution commands a bit nicer. I don't fully understand
+   setopt SHARE_HISTORY                        # Shares history across multiple zsh sessions, in real time
+   setopt HIST_IGNORE_DUPS                     # Do not write events to history that are duplicates of the immediately previous event
+   setopt INC_APPEND_HISTORY                   # Add commands to history as they are typed, don't wait until shell exit
+   setopt HIST_REDUCE_BLANKS                   # Remove extra blanks from each command line being added to history
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
