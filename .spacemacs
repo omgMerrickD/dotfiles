@@ -266,7 +266,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Hack Nerd Font"
+   dotspacemacs-default-font '("JetBrains Mono Nerd Font Mono"
                                :size 25
                                :weight normal
                                :width normal)
