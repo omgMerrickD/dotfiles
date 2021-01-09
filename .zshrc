@@ -60,14 +60,13 @@ alias cat="bat"
 # Copy with a progress bar
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 
-alias ls="exa -lah" 
-alias lw="exa -a"
-alias fp="fontpreview"
-#alias vim="e"
+alias ls="exa -lah"                                                                         # List directory contents with Exa in standard mode
+alias lw="exa -a"                                                                           # List directory contents with Exa in wide-mode
+alias fp="fontpreview"                                                                      # Terminal font preview
 alias E="SUDO_EDITOR=\"eframe\" sudo -e"
-alias ei3="emacs ~/.i3/config"
-alias -g G="| grep"
-alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
+alias ei3="emacs ~/.i3/config "                                                             # Edit i3 config in Emacs
+alias -g G="| grep"                                                                         # G is grep!
+alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'                                   # Launch Gogh terminal color scheme app
 #alias emc="emacsclient -tty --alternate-editor=\"\""
 alias emct="SUDO_EDITOR=\"emacsclient -c -n --alternate-editor=\" sudo -e"
 #alias emc="emacsclient -c -t -s instance1"
@@ -78,15 +77,15 @@ alias dfc=dot_commit $*
 alias dfp="yadm push"
 alias dfac="yadm add && dot_commit $*" # TODO: Make this a shellscript
 alias dfacp="yadm add && dot_commit $* && dfp && dfs" # TODO: Shellscript
-alias paci="sudo pacman -S"
-alias pacs="sudo pacman -Ss"
-alias pacu="sudo pacman -Syyu"
-alias pacr="sudo pacman -Rs"
-alias hugostart="cd $HOME/github/hugo/myblog && hugo server --disableFastRender &"
-alias piholes="ssh pi@192.168.254.100 \"pihole -t\""
-alias cs="cht.sh --shell"
-alias udb="sudo updatedb"
-alias scs="sudo systemctl start"
+alias paci="sudo pacman -S"                                                                 # Install app with Pacman
+alias pacs="sudo pacman -Ss"                                                                # Search for app with Pacman
+alias pacu="sudo pacman -Syyu"                                                              # Update system with Pacman
+alias pacr="sudo pacman -Rs"                                                                # Remove app with Pacman
+alias hugostart="cd $HOME/github/hugo/myblog && hugo server --disableFastRender &"          # Start Hugo server for my blog
+alias piholes="ssh pi@192.168.254.100 \"pihole -t\""                                        # Connect to my Raspberry Pi PiHole server
+alias chtsh="cht.sh --shell"                                                                # Launch cht.sh in the shell
+alias udb="sudo updatedb"                                                                   # Update the mlocate database
+alias scs="sudo systemctl start"                                                            # Shortcut for systemctl start
 alias scst="sudo systemctl stop"
 alias sce="sudo systemctl enable"
 alias scstat="sudo systemctl status"
