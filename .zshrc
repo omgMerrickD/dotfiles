@@ -94,6 +94,7 @@ alias scr="sudo systemctl restart"
 alias vi="/usr/bin/vim"
 alias fcu="sudo fc-cache -f -v"
 alias fcl="sudo fc-list -v G"
+alias rs="redshift -v"                                                                    # Launch redshift (color temp adjustment)
 eval "$(navi widget zsh)"
 alias map="telnet mapscii.me"
 
