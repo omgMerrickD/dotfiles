@@ -56,46 +56,46 @@ alias ez="emacs ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias cat="bat"
 
-# Copy with a progress bar
-alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
+alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"                   # Copy files with a progress bar
 
-alias ls="exa -lah" 
-alias lw="exa -a"
-alias fp="fontpreview"
+alias ls="exa -lah"                                                                           # Exa: List directory in long format
+alias lw="exa -a"                                                                             # Exa: List directory in wide format
+alias fp="fontpreview"                                                                        # Preview fonts from the command line
 #alias vim="e"
 alias E="SUDO_EDITOR=\"eframe\" sudo -e"
-alias ei3="emacs ~/.i3/config"
-alias -g G="| grep"
+alias ei3="emacs ~/.i3/config"                                                                # Edit the i3wm config
+alias -g G="| grep"                                                                           # G to grep
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 #alias emc="emacsclient -tty --alternate-editor=\"\""
 alias emct="SUDO_EDITOR=\"emacsclient -c -n --alternate-editor=\" sudo -e"
 #alias emc="emacsclient -c -t -s instance1"
-alias dfs="yadm status"
-#alias dfa="yadm add -u :/"
-alias dfa="yadm add"
+alias dfs="yadm status"                                                                       # Dotfiles: Check git status
+#alias dfa="yadm add -u :/"                                                                   # Dotfiles: Stage ALL changed files
+alias dfa="yadm add"                                                                          # Dotfiles: Stage individual file
 alias dfc=dot_commit $*
-alias dfp="yadm push"
+alias dfp="yadm push"                                                                         # Dotfiles: Push to github
 alias dfac="yadm add && dot_commit $*" # TODO: Make this a shellscript
 alias dfacp="yadm add && dot_commit $* && dfp && dfs" # TODO: Shellscript
-alias paci="sudo pacman -S"
-alias pacs="sudo pacman -Ss"
-alias pacu="sudo pacman -Syyu"
-alias pacr="sudo pacman -Rs"
-alias hugostart="cd $HOME/github/www/myblog && hugo serve &"
-alias piholes="ssh pi@192.168.254.100 \"pihole -t\""
-alias cs="cht.sh --shell"
-alias udb="sudo updatedb"
-alias scs="sudo systemctl start"
-alias scst="sudo systemctl stop"
-alias sce="sudo systemctl enable"
-alias scstat="sudo systemctl status"
-alias scd="sudo systemctl disable"
-alias scr="sudo systemctl restart"
+alias paci="sudo pacman -S"                                                                   # Pacman: Install a package
+alias pacs="sudo pacman -Ss"                                                                  # Pacman: Search for a package
+alias pacu="sudo pacman -Syyu"                                                                # Pacman: Update the system
+alias pacr="sudo pacman -Rs"                                                                  # Pacman: Remove a package
+alias hugostart="cd $HOME/github/www/myblog && hugo serve &"                                  # Start the Hugo web server for my blog
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"                               # Display my current external IP address
+alias piholes="ssh pi@192.168.254.100 \"pihole -t\""                                          # Raspberry Pi: Connect to my Pi
+alias cs="cht.sh --shell"                                                                     # Cheatsheet: Launch the shell client
+alias udb="sudo updatedb"                                                                     # Update the mlocate (search) database
+alias scs="sudo systemctl start"                                                              # Systemctl: Start <service>
+alias scst="sudo systemctl stop"                                                              # Systemctl: Stop <service>
+alias sce="sudo systemctl enable"                                                             # Systemctl: Enable <service>
+alias scstat="sudo systemctl status"                                                          # Systemctl: Get status of <service> 
+alias scd="sudo systemctl disable"                                                            # Systemctl: Disable <service>
+alias scr="sudo systemctl restart"                                                            # Systemctl: Restart <service>
 alias vi="/usr/bin/vim"
-alias fcu="sudo fc-cache -f -v"
-alias fcl="sudo fc-list -v G"
+alias fcu="sudo fc-cache -f -v"                                                               # Fonts: Update the font cache
+alias fcl="sudo fc-list -v G"                                                                 # Fonts: List details of <fontname>
 eval "$(navi widget zsh)"
-alias map="telnet mapscii.me"
+alias map="telnet mapscii.me"                                                                 # Mapscii: Google maps for the terminal
 
 # Setup grep to be a bit more nice
   # check if 'x' grep argument available
