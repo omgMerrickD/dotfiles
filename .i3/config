@@ -74,8 +74,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 
 # Start Applications
 #bindsym $mod+Ctrl+b exec xfce4-terminal -e 'bmenu'
-#for_window [class="Chromium"] move scratchpad 
-bindsym $mod+b exec vivaldi-stable 
+bindsym $mod+b exec chromium 
 #bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
@@ -269,6 +268,19 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+Ctrl+b mode "$mode_browser"
+set $mode_browser (b)rave, (c)hromium, (f)irefox, (v)ivaldi
+mode "$mode_browser" {
+  bindsym b exec brave, mode "default"
+  bindsym c exec chromium, mode "default"
+  bindsym f exec firefox, mode "default"
+  bindsym v exec vivaldi-stable, mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+
+}
+
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
