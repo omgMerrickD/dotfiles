@@ -39,7 +39,9 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      helm
      ;unicode-fonts
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t)
      better-defaults
      emacs-lisp
      games
@@ -552,7 +554,20 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  
+  (module/misc/yasnippet)
   (setq easy-hugo-basedir "~/github/www/myblog")
+  
+  )
+
+;;; yasnippets config
+(defun module/misc/yasnippet ()
+  "Yassnippet bindings and config."
+  (use-package yasnippet-snippet
+    :defer t
+    :config
+    (push 'yas-installed-snippets-dir yas-snippet-dirs)
+    )
   )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
