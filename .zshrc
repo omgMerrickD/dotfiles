@@ -38,7 +38,6 @@ export GEM_HOME="$HOME/gems"
 export UPDATE_ZSH_DAYS=1
 #zmodload zsh/zpty
 
-export ARCHFLAGS="-arch x86_64"
 #Path to your oh-my-zsh installation.
 export ZSH="/home/gh0st/.oh-my-zsh"
 
@@ -57,46 +56,46 @@ alias ez="emacs ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias cat="bat"
 
-# Copy with a progress bar
-alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
+alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"                   # Copy files with a progress bar
 
-alias ls="exa -lah"                                                                         # List directory contents with Exa in standard mode
-alias lw="exa -a"                                                                           # List directory contents with Exa in wide-mode
-alias fp="fontpreview"                                                                      # Terminal font preview
+alias ls="exa -lah"                                                                           # Exa: List directory in long format
+alias lw="exa -a"                                                                             # Exa: List directory in wide format
+alias fp="fontpreview"                                                                        # Preview fonts from the command line
+#alias vim="e"
 alias E="SUDO_EDITOR=\"eframe\" sudo -e"
-alias ei3="emacs ~/.i3/config "                                                             # Edit i3 config in Emacs
-alias -g G="| grep"                                                                         # G is grep!
-alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'                                   # Launch Gogh terminal color scheme app
+alias ei3="emacs ~/.i3/config"                                                                # Edit the i3wm config
+alias -g G="| grep"                                                                           # G to grep
+alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 #alias emc="emacsclient -tty --alternate-editor=\"\""
 alias emct="SUDO_EDITOR=\"emacsclient -c -n --alternate-editor=\" sudo -e"
 #alias emc="emacsclient -c -t -s instance1"
-alias dfs="yadm status"
-#alias dfa="yadm add -u :/"
-alias dfa="yadm add"
+alias dfs="yadm status"                                                                       # Dotfiles: Check git status
+#alias dfa="yadm add -u :/"                                                                   # Dotfiles: Stage ALL changed files
+alias dfa="yadm add"                                                                          # Dotfiles: Stage individual file
 alias dfc=dot_commit $*
-alias dfp="yadm push"
+alias dfp="yadm push"                                                                         # Dotfiles: Push to github
 alias dfac="yadm add && dot_commit $*" # TODO: Make this a shellscript
 alias dfacp="yadm add && dot_commit $* && dfp && dfs" # TODO: Shellscript
-alias paci="sudo pacman -S"                                                                 # Install app with Pacman
-alias pacs="sudo pacman -Ss"                                                                # Search for app with Pacman
-alias pacu="sudo pacman -Syyu"                                                              # Update system with Pacman
-alias pacr="sudo pacman -Rs"                                                                # Remove app with Pacman
-alias hugostart="cd $HOME/github/hugo/myblog && hugo server --disableFastRender &"          # Start Hugo server for my blog
-alias piholes="ssh pi@192.168.254.100 \"pihole -t\""                                        # Connect to my Raspberry Pi PiHole server
-alias chtsh="cht.sh --shell"                                                                # Launch cht.sh in the shell
-alias udb="sudo updatedb"                                                                   # Update the mlocate database
-alias scs="sudo systemctl start"                                                            # Shortcut for systemctl start
-alias scst="sudo systemctl stop"
-alias sce="sudo systemctl enable"
-alias scstat="sudo systemctl status"
-alias scd="sudo systemctl disable"
-alias scr="sudo systemctl restart"
+alias paci="sudo pacman -S"                                                                   # Pacman: Install a package
+alias pacs="sudo pacman -Ss"                                                                  # Pacman: Search for a package
+alias pacu="sudo pacman -Syyu"                                                                # Pacman: Update the system
+alias pacr="sudo pacman -Rs"                                                                  # Pacman: Remove a package
+alias hugostart="cd $HOME/github/www/myblog && hugo serve &"                                  # Start the Hugo web server for my blog
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"                               # Display my current external IP address
+alias piholes="ssh pi@192.168.254.100 \"pihole -t\""                                          # Raspberry Pi: Connect to my Pi
+alias cs="cht.sh --shell"                                                                     # Cheatsheet: Launch the shell client
+alias udb="sudo updatedb"                                                                     # Update the mlocate (search) database
+alias scs="sudo systemctl start"                                                              # Systemctl: Start <service>
+alias scst="sudo systemctl stop"                                                              # Systemctl: Stop <service>
+alias sce="sudo systemctl enable"                                                             # Systemctl: Enable <service>
+alias scstat="sudo systemctl status"                                                          # Systemctl: Get status of <service> 
+alias scd="sudo systemctl disable"                                                            # Systemctl: Disable <service>
+alias scr="sudo systemctl restart"                                                            # Systemctl: Restart <service>
 alias vi="/usr/bin/vim"
-alias fcu="sudo fc-cache -f -v"
-alias fcl="sudo fc-list -v G"
-alias rs="redshift -v"                                                                    # Launch redshift (color temp adjustment)
+alias fcu="sudo fc-cache -f -v"                                                               # Fonts: Update the font cache
+alias fcl="sudo fc-list -v G"                                                                 # Fonts: List details of <fontname>
 eval "$(navi widget zsh)"
-alias map="telnet mapscii.me"
+alias map="telnet mapscii.me"                                                                 # Mapscii: Google maps for the terminal
 
 # Setup grep to be a bit more nice
   # check if 'x' grep argument available
@@ -125,22 +124,6 @@ alias map="telnet mapscii.me"
  
    # clean up
    unfunction grep-flag-available
-
-# ZSH History 
-   alias history='fc -fl 1'
-   HISTFILE=$ZSH_CACHE/history                 # Keep our home directory neat by keeping the histfile somewhere else
-   SAVEHIST=10000                              # Big history
-   HISTSIZE=10000                              # Big history
-   setopt EXTENDED_HISTORY                     # Include more information about when the command was executed, etc
-   setopt APPEND_HISTORY                       # Allow multiple terminal sessions to all append to one zsh command history
-   setopt HIST_FIND_NO_DUPS                    # When searching history don't display results already cycled through twice
-   setopt HIST_EXPIRE_DUPS_FIRST               # When duplicates are entered, get rid of the duplicates first when we hit $HISTSIZE 
-   setopt HIST_IGNORE_SPACE                    # Don't enter commands into history if they start with a space
-   setopt HIST_VERIFY                          # makes history substitution commands a bit nicer. I don't fully understand
-   setopt SHARE_HISTORY                        # Shares history across multiple zsh sessions, in real time
-   setopt HIST_IGNORE_DUPS                     # Do not write events to history that are duplicates of the immediately previous event
-   setopt INC_APPEND_HISTORY                   # Add commands to history as they are typed, don't wait until shell exit
-   setopt HIST_REDUCE_BLANKS                   # Remove extra blanks from each command line being added to history
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
