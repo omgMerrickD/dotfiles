@@ -269,6 +269,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# Custom browser launcher mode
 bindsym $mod+Ctrl+b mode "$mode_browser"
 set $mode_browser (b)rave, (c)hromium, (f)irefox, (v)ivaldi
 mode "$mode_browser" {
@@ -278,7 +279,6 @@ mode "$mode_browser" {
   bindsym v exec vivaldi-stable, mode "default"
   bindsym Return mode "default"
   bindsym Escape mode "default"
-
 }
 
 
