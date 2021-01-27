@@ -263,6 +263,7 @@ for_window [title="htop"] floating enable border pixel 2, resize set 1440 900, m
 for_window [class="Spotify"] move to workspace $ws8
 for_window [title="scratchterm"] move scratchpad
 for_window [title="anydesk"] move to workspace $ws7
+for_window [class="Blueman-manager"] floating enable border pixel 2, resize set 500 400
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
