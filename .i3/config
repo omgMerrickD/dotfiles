@@ -204,7 +204,14 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-# Open applications on specific workspaces
+
+
+#########################
+#                       #
+# Workspace Assignments #
+#                       #
+#########################
+
 assign [class="Xfce4-terminal"] $ws1
 assign [class="Alacritty"] $ws1
 assign [class="Tilix"] $ws1
@@ -213,13 +220,14 @@ assign [class="firefox"] $ws2
 assign [class="Vivaldi-snapshot"] $ws2
 assign [class="Vivaldi-stable"] $ws2
 assign [instance="discord"] $ws4
-assign [class="realvnc-vncviewer"] $ws7
-assign [class="Emacs"] $ws3
-assign [class="whatsdesk"] $ws4
-assign [class="Anydesk"] $ws7
-assign [class="GitKraken"] $ws6
+assign [class="realvnc-vncviewer"] $ws7     
+assign [class="Emacs"] $ws3                
+assign [class="whatsdesk"] $ws4           
+assign [class="Anydesk"] $ws7            
+assign [class="GitKraken"] $ws6         
 assign [class="obsidian"] $ws5
 assign [class="Steam"] $ws6
+assign [class="code-oss"] $ws3
 # Spotify workstation assignment is declared below via for_window
 
 # Open specific applications in floating mode
