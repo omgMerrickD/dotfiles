@@ -93,7 +93,7 @@ alias scd="sudo systemctl disable"                                              
 alias scr="sudo systemctl restart"                                                            # Systemctl: Restart <service>
 alias vi="/usr/bin/vim"
 alias fcu="sudo fc-cache -f -v"                                                               # Fonts: Update the font cache
-alias fcl="sudo fc-list -v G"                                                                 # Fonts: List details of <fontname>
+alias fcl="fc-list -v G"                                                                 # Fonts: List details of <fontname>
 eval "$(navi widget zsh)"
 alias map="telnet mapscii.me"                                                                 # Mapscii: Google maps for the terminal
 
