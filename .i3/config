@@ -8,6 +8,17 @@
 #                                                                   
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master '5%+' &&  notify-send 'Volume up'
+bindsym XF86AudioLowerVolume exec amixer -D pulse set  Master '5%-' && notify-send 'Volume down'
+bindsym XF86AudioMute exec amixer set Master toggle && notify-send 'Mute toggled'
+#bindsym Print exec scrot '%F--%I:%M:%S:%p--$wx$h--workspace.png' -e 'mv $f /home/edgar/Pictures/Screenshots' && sleep 1 && exec notify-send 'screenshot has been saved to ~/Pictures/Screenshots'
+#bindsym $mod+Print exec scrot '%F--%I:%M:%S:%p--$wx$h--window.png' -ue 'mv $f /home/edgar/Pictures/Screenshots' && sleep 1 && exec notify-send 'screenshot has been saved to ~/Pictures/Screenshots'
+#bindsym $mod+Shift+Print exec notify-send 'selection will be saved to ~/Imágenes/Screenshots' && exec scrot '%F--%I:%M:%S:%p--$wx$h--selection.png' -se 'mv $f ~/Imágenes/Screenshots' && sleep 1 && exec notify-send 'screenshot has been saved in ~/Imágenes/Screenshots'
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2 && exec notify-send " $( xbacklight -get )%"
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2 && exec notify-send " $( xbacklight -get )%"j))
+#bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+#bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
@@ -42,7 +53,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return [title="scratchterm"] scratchpad show 
 
 # start emacsclient
-bindsym $mod+Shift+e exec emacs; move container to $ws3
+bindsym $mod+Shift+e exec emacs
 
 # start/show htop in scratchpad if it isn't already running
 bindsym $mod+Shift+p exec /usr/local/bin/launch_top.sh
@@ -60,7 +71,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-##exec --no-startup-id volumeicon
+###exec --no-startup-id volumeicon
 #bindsym $mod+Ctrl+m exec xfce4-terminal -e 'alsamixer'
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
@@ -69,8 +80,8 @@ bindsym $mod+Ctrl+m exec pavucontrol
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+#bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+#bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
 #bindsym $mod+Ctrl+b exec xfce4-terminal -e 'bmenu'
@@ -173,6 +184,7 @@ set $ws5 5:Misc
 set $ws6 6:Steam
 set $ws7 7:Remote
 set $ws8 8:Media
+set $ws9 9:Etc
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -183,6 +195,7 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -193,6 +206,7 @@ bindsym $mod+Ctrl+5 move container to workspace $ws5
 bindsym $mod+Ctrl+6 move container to workspace $ws6
 bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -203,7 +217,7 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 
 #########################
@@ -221,17 +235,20 @@ assign [class="firefoxdeveloperedition"] $ws2
 assign [class="Vivaldi-snapshot"] $ws2
 assign [class="Vivaldi-stable"] $ws2
 assign [instance="discord"] $ws4
-assign [class="realvnc-vncviewer"] $ws7     
-assign [class="Emacs"] $ws3                
-assign [class="whatsdesk"] $ws4           
-assign [class="Anydesk"] $ws7            
-assign [class="GitKraken"] $ws6         
+assign [class="realvnc-vncviewer"] $ws7
+assign [class="Emacs"] $ws3
+assign [class="whatsdesk"] $ws4
+assign [class="Anydesk"] $ws7
+assign [class="GitKraken"] $ws6
 assign [class="obsidian"] $ws5
 assign [class="Steam"] $ws6
 assign [class="code-oss"] $ws3
 # Spotify workstation assignment is declared below via for_window
 
 # Open specific applications in floating mode
+for_window [class="Gnome-calculator"] floating enable, resize set 600 500
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+for_window [class="ksplashqml"] kill; floating enable; border none
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
@@ -259,7 +276,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="Emacs"] fullscreen enable focus
+for_window [class="Emacs"] fullscreen enable, focus
 for_window [title="htop"] floating enable border pixel 2, resize set 1440 900, move scratchpad, move window to position 559 254, focus
 for_window [class="Spotify"] move to workspace $ws8
 for_window [title="scratchterm"] move scratchpad
