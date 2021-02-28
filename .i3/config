@@ -15,8 +15,8 @@ bindsym XF86AudioMute exec amixer set Master toggle && notify-send 'Mute toggled
 #bindsym Print exec scrot '%F--%I:%M:%S:%p--$wx$h--workspace.png' -e 'mv $f /home/edgar/Pictures/Screenshots' && sleep 1 && exec notify-send 'screenshot has been saved to ~/Pictures/Screenshots'
 #bindsym $mod+Print exec scrot '%F--%I:%M:%S:%p--$wx$h--window.png' -ue 'mv $f /home/edgar/Pictures/Screenshots' && sleep 1 && exec notify-send 'screenshot has been saved to ~/Pictures/Screenshots'
 #bindsym $mod+Shift+Print exec notify-send 'selection will be saved to ~/Imágenes/Screenshots' && exec scrot '%F--%I:%M:%S:%p--$wx$h--selection.png' -se 'mv $f ~/Imágenes/Screenshots' && sleep 1 && exec notify-send 'screenshot has been saved in ~/Imágenes/Screenshots'
-bindsym XF86MonBrightnessUp exec xbacklight -inc 2 && exec notify-send " $( xbacklight -get )%"
-bindsym XF86MonBrightnessDown exec xbacklight -dec 2 && exec notify-send " $( xbacklight -get )%"j))
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 2 && exec notify-send " $( xbacklight -get )%"
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 2 && exec notify-send " $( xbacklight -get )%"j))
 #bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 #bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
@@ -63,7 +63,7 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_recency
-bindsym $mod+d exec rofi -combi-modi window\#drun -show combi -modi combi -show-icons
+bindsym $mod+d exec rofi -combi-modi window\#drun -show combi -modi combi -show-icons -mesg 
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -81,8 +81,8 @@ bindsym $mod+Ctrl+m exec pavucontrol
 ################################################################################################
 
 # Screen brightness controls
-#bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-#bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
 #bindsym $mod+Ctrl+b exec xfce4-terminal -e 'bmenu'
